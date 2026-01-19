@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dice Game</title>
+  </head>
+  <body>
+    <div class="top-bar">
+      <div class="score-block">Score: <span id="score-value">0</span></div>
+    </div>
+
+    <div class="container">
+      <h1 class="Hand-score">
+        Hand score: <span id="hand-score-value">0</span>
+      </h1>
+
+      <div class="grid">
+        <button class="box-button" id="box1">
+          <img src="question-mark.png" alt="Playing dice" class="dice-1" />
+        </button>
+        <button class="box-button" id="box2">
+          <img src="question-mark.png" alt="Playing dice" class="dice-2" />
+        </button>
+        <button class="box-button" id="box3">
+          <img src="question-mark.png" alt="Playing dice" class="dice-3" />
+        </button>
+        <button class="box-button" id="box4">
+          <img src="question-mark.png" alt="Playing dice" class="dice-4" />
+        </button>
+        <button class="box-button" id="box5">
+          <img src="question-mark.png" alt="Playing dice" class="dice-5" />
+        </button>
+        <button class="box-button" id="box6">
+          <img src="question-mark.png" alt="Playing dice" class="dice-6" />
+        </button>
+      </div>
+    </div>
+
+    <button class="btn btn--roll">Start Game</button>
+
+    <button class="btn btn--reroll--unselected">Reroll unselected dice</button>
+
+    <button class="btn btn--reroll--all">Reroll all dice</button>
+
+    <button class="btn btn--lock--in">Lock in points</button>
+
+    <button class="btn btn--losing">Return to home</button>
+
+    <script src="script.js"></script>
+
+    <!-- <form id="your-name">
+      <h1>Number of players</h1>
+      <input id="players-input" type="text" placeholder="" />
+      <button id="ok-button">OK!</button>
+    </form> -->
+  </body>
+</html>
