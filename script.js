@@ -19,7 +19,7 @@ const button6Element = document.getElementById("box6");
 //Other button elements
 const rollButton = document.querySelector(".btn--roll");
 const rerollUnselectedButton = document.querySelector(
-  ".btn--reroll--unselected"
+  ".btn--reroll--unselected",
 );
 const rerollAllButton = document.querySelector(".btn--reroll--all");
 const lockInButton = document.querySelector(".btn--lock--in");
@@ -136,6 +136,7 @@ const initialise = function () {
   returnHomeButton.classList.add("hidden");
   handScoreValue.textContent = 0;
   ifReroll = [0, 0, 0, 0, 0, 0];
+  lockedIn = [0, 0, 0, 0, 0, 0];
   score1 = 0;
 };
 
@@ -173,28 +174,32 @@ let score2 = 0;
 let score3 = 0;
 let first6;
 let newlyRolledDice = [];
+let lockedIn = [0, 0, 0, 0, 0, 0];
 initialise();
 
 //Start game button functionality
 rollButton.addEventListener("click", function () {
-  gameStarted = true;
-  rolled = rollAllDice();
+  if (gameStarted == false) {
+    gameStarted = true;
+    rolled = rollAllDice();
 
-  gameLostCheck(rolled);
+    gameLostCheck(rolled);
+  }
 });
 
 //Dice box-buttons functionality
 button1Element.addEventListener("click", function () {
-  if (gameStarted) {
+  if (gameStarted && lockedIn[0] == 0) {
     button1Element.classList.toggle("selected--dice");
     ifReroll[0] = 1 - ifReroll[0];
     showButtons();
     countableDice[0] = rolled[0] - countableDice[0];
+    // console.log("didnt work");
   }
 });
 
 button2Element.addEventListener("click", function () {
-  if (gameStarted) {
+  if (gameStarted && lockedIn[1] == 0) {
     button2Element.classList.toggle("selected--dice");
     ifReroll[1] = 1 - ifReroll[1];
     showButtons();
@@ -203,7 +208,7 @@ button2Element.addEventListener("click", function () {
 });
 
 button3Element.addEventListener("click", function () {
-  if (gameStarted) {
+  if (gameStarted && lockedIn[2] == 0) {
     button3Element.classList.toggle("selected--dice");
     ifReroll[2] = 1 - ifReroll[2];
     showButtons();
@@ -212,7 +217,7 @@ button3Element.addEventListener("click", function () {
 });
 
 button4Element.addEventListener("click", function () {
-  if (gameStarted) {
+  if (gameStarted && lockedIn[3] == 0) {
     button4Element.classList.toggle("selected--dice");
     ifReroll[3] = 1 - ifReroll[3];
     showButtons();
@@ -221,7 +226,7 @@ button4Element.addEventListener("click", function () {
 });
 
 button5Element.addEventListener("click", function () {
-  if (gameStarted) {
+  if (gameStarted && lockedIn[4] == 0) {
     button5Element.classList.toggle("selected--dice");
     ifReroll[4] = 1 - ifReroll[4];
     showButtons();
@@ -230,7 +235,7 @@ button5Element.addEventListener("click", function () {
 });
 
 button6Element.addEventListener("click", function () {
-  if (gameStarted) {
+  if (gameStarted && lockedIn[5] == 0) {
     button6Element.classList.toggle("selected--dice");
     ifReroll[5] = 1 - ifReroll[5];
     showButtons();
@@ -247,6 +252,7 @@ rerollUnselectedButton.addEventListener("click", function () {
     for (let i = 0; i <= 5; i++) {
       if (ifReroll[i] == 1) {
         document.getElementById(`box${i + 1}`).classList.add("lockedin--dice");
+        lockedIn[i] = ifReroll[i];
       } else {
         temp = Math.ceil(Math.random() * 6);
         newlyRolledDice.push(temp);
@@ -255,6 +261,7 @@ rerollUnselectedButton.addEventListener("click", function () {
       }
     }
   }
+  console.log(lockedIn);
 
   score1 += newCountDiceScores(countableDice, aliveTriples);
   countableDice = [0, 0, 0, 0, 0, 0];

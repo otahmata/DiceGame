@@ -1,29 +1,33 @@
+html,
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   background: #85bcc7;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 /* --- Top Bar Layout --- */
 .top-bar {
   width: 100%;
   align-items: center;
-  padding: 40px;
+  padding: 20px;
   box-sizing: border-box;
   padding-left: 30px;
 }
 
 .score-block {
-  font-size: 1.8rem;
+  /* font-size: 1.6rem; */
+  font-size: 3vh;
   font-weight: bold;
-  position: absolute;
 }
 
-.hand-score-block {
-  font-size: 1rem;
+.Hand-score {
+  /* font-size: 1.6rem; */
   font-weight: bold;
+  font-size: 3vh;
 }
 
 #score-value,
@@ -33,36 +37,19 @@ body {
 
 /* --- Image Grid --- */
 .container {
-  max-width: 900px;
-
+  width: 55vw;
+  height: 55vh;
   margin: 0 auto;
   text-align: center;
-}
-
-.score {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  /* gap: 20px; */
+  gap: 2.5vh;
   scale: 0.7;
-  transform: translate(0, -120px);
-}
-
-.box {
-  background: #8e9394;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.678);
-}
-
-.box img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
+  transform: translate(0, -8vw);
 }
 
 .box-button {
@@ -70,14 +57,15 @@ body {
   cursor: pointer;
   background-color: #8e9394;
   border-radius: 8px;
-  padding: 20px;
+  /* padding: 20px; */
+  padding: 1.2vw;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.678);
 }
 
 .box-button img {
   width: 100%;
   height: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .box-button:hover {
@@ -101,7 +89,8 @@ body {
   background: none;
   border: none;
   font-family: inherit;
-  font-size: 1.8rem;
+  /* font-size: 1.5rem; */
+  font-size: 2.5vh;
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 400;
@@ -113,43 +102,46 @@ body {
   padding: 0.7rem 2.5rem;
   border-radius: 50rem;
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+
+  height: 6vh;
+  white-space: nowrap;
 }
 
 .btn--roll {
-  top: 39rem;
+  top: 74vh;
 }
 
 .btn--losing {
-  top: 39rem;
+  top: 74vh;
 }
 
 .btn--reroll--unselected {
-  top: 39rem;
+  top: 74vh;
 }
 
 .btn--reroll--all {
-  top: 43rem;
+  top: 81vh;
 }
 
 .btn--lock--in {
-  top: 47rem;
+  top: 88vh;
 }
 
 .hidden {
   display: none;
 }
 
-#your-name h1 {
+/* #your-name h1 {
   color: blue;
-}
+} */
 
-#players-input {
+/* #players-input {
   height: 40px;
   width: 250px;
-}
+} */
 
-#ok-button {
+/* #ok-button {
   height: 40px;
   width: 50px;
   size: 200%;
-}
+} */
